@@ -249,10 +249,26 @@ body{
 }
 
 .flower__fall-down--purple{
-    bottom: 4vmin;
-    animation:flower-fall-down-purple  6s 1.2s linear forwards, flower-falling 6s 7.2s linear infinite;
+    animation: flower-fall-down-purple  5s 1.2s linear forwards;
 }
 
+.message {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Arial', sans-serif;
+    font-size: 4rem;
+    color: #ff6b6b;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3),
+                 0 0 20px rgba(255, 107, 107, 0.5),
+                 0 0 40px rgba(255, 107, 107, 0.3);
+    animation: fadeIn 2s ease-in-out,
+               float 3s ease-in-out infinite;
+    z-index: 1000;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
 
 @keyframes open-flower{
     0%{
@@ -329,24 +345,53 @@ body{
 
 }
 
-@keyframes flower-falling {
-    0%,100%{
-        transform-origin: center;
-        transform:translate(-34vmin,-2vmin) rotateY(-80deg) rotateX(35deg);
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -30%);
     }
-
-    25%{
-        transform-origin: center;
-        transform:translate(-34.4vmin,-2vmin) rotateY(-84deg) rotateX(35deg);
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
     }
+}
 
-    50%{
-        transform-origin: center;
-        transform:translate(-32vmin,-4.2vmin) rotateY(-80deg) rotateX(35deg);
+@keyframes float {
+    0%, 100% {
+        transform: translate(-50%, -50%) translateY(0);
     }
+    50% {
+        transform: translate(-50%, -50%) translateY(-10px);
+    }
+}
 
-    75%{
-        transform-origin: center;
-        transform:translate(-36vmin,1.1vmin) rotateY(-80deg) rotateX(35deg);
+@keyframes colorChange {
+    0% {
+        background: linear-gradient(45deg, #ff6b6b, #ff8e8e, #ffb3b3, #ffd8d8);
+    }
+    25% {
+        background: linear-gradient(45deg, #ff8e8e, #ffb3b3, #ffd8d8, #ff6b6b);
+    }
+    50% {
+        background: linear-gradient(45deg, #ffb3b3, #ffd8d8, #ff6b6b, #ff8e8e);
+    }
+    75% {
+        background: linear-gradient(45deg, #ffd8d8, #ff6b6b, #ff8e8e, #ffb3b3);
+    }
+    100% {
+        background: linear-gradient(45deg, #ff6b6b, #ff8e8e, #ffb3b3, #ffd8d8);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        text-shadow: 0 0 10px rgba(255, 107, 107, 0.5),
+                     0 0 20px rgba(255, 142, 142, 0.3),
+                     0 0 30px rgba(255, 179, 179, 0.2);
+    }
+    50% {
+        text-shadow: 0 0 15px rgba(255, 107, 107, 0.7),
+                     0 0 25px rgba(255, 142, 142, 0.5),
+                     0 0 35px rgba(255, 179, 179, 0.3);
     }
 }
